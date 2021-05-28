@@ -19,6 +19,9 @@ public class Producto {
 	@Column(length = 32)
 	@Hidden
 	private String id;
+	@Column(length= 30)
+	@Required
+	private String nombre;
 	
 	@Column(length = 150)
 	@Required
@@ -27,6 +30,7 @@ public class Producto {
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@DescriptionsList
 	Categoria categoria;
+	
 	
 	@Stereotype("DINERO")
 	private BigDecimal precio;
