@@ -3,9 +3,7 @@ package com.tuempresa.ventas.modelo;
 import java.math.*;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
 
-import org.hibernate.annotations.*;
 import org.openxava.annotations.*;
 
 import lombok.*;
@@ -14,11 +12,9 @@ import lombok.*;
 public class Producto {
 
 	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(length = 32)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Hidden
-	private String id;
+	private int id;
 	
 	@Column(length = 150)
 	@Required

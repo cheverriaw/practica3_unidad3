@@ -22,10 +22,6 @@ public class DetalleVenta {
 	@Stereotype("DINERO")
 	private BigDecimal subtotal;
 	
-	@Column
-	@Required
-	@Stereotype("DINERO")
-	private BigDecimal iva;
 	
 	@Column
 	@Required

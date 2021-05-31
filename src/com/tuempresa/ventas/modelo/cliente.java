@@ -3,21 +3,20 @@ package com.tuempresa.ventas.modelo;
 import java.util.*;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
 
-import org.hibernate.annotations.*;
 import org.openxava.annotations.*;
 
 import lombok.*;
 
 @Entity @Getter @Setter
+@View(name="Simple", 
+members="id, nombre" 
+)
 public class Cliente {
 	@Id
-	@GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name ="system-uuid" , strategy="uuid" )
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Hidden
-	@Column(length = 32)
-	private String id;
+	private int id;
 	
 	@Column(length= 30)
 	@Stereotype("NOMBRE_PERSONA")
@@ -26,5 +25,5 @@ public class Cliente {
 	
 	//relacion con venta
 	@OneToMany(mappedBy = "cliente")
-	private List<Venta> ventas;
+	private Collection<Venta> ventas;
 }

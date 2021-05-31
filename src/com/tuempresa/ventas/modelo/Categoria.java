@@ -1,9 +1,7 @@
 package com.tuempresa.ventas.modelo;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
 
-import org.hibernate.annotations.*;
 import org.openxava.annotations.*;
 
 import lombok.*;
@@ -12,11 +10,9 @@ import lombok.*;
 public class Categoria {
 
 	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(length = 32)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Hidden
-	private String id;
+	private int id;
 	
 	@Column(length = 150)
 	@Required
