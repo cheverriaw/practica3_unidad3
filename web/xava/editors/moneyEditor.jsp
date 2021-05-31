@@ -4,7 +4,8 @@
 <% 
 String symbol = null;
 try {
-	symbol = Currency.getInstance(Locale.getDefault()).getSymbol(); 
+	//symbol = Currency.getInstance(Locale.getDefault()).getSymbol(); 
+	symbol = "$";
 }
 catch (Exception ex) { // Because Locale.getDefault() may not contain the country
 	symbol = "?";
