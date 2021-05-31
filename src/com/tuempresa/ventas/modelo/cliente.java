@@ -1,5 +1,7 @@
 package com.tuempresa.ventas.modelo;
 
+import java.util.*;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 
@@ -11,7 +13,7 @@ import lombok.*;
 @Entity @Getter @Setter
 public class Cliente {
 	@Id
-	@GeneratedValue(generator="System-uuid")
+	@GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name ="system-uuid" , strategy="uuid" )
 	@Hidden
 	@Column(length = 32)
@@ -21,4 +23,8 @@ public class Cliente {
 	@Stereotype("NOMBRE_PERSONA")
 	@Required
 	private String nombre;
+	
+	//relacion con venta
+	@OneToMany(mappedBy = "cliente")
+	private List<Venta> ventas;
 }

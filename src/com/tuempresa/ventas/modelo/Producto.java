@@ -19,9 +19,6 @@ public class Producto {
 	@Column(length = 32)
 	@Hidden
 	private String id;
-	@Column(length= 30)
-	@Required
-	private String nombre;
 	
 	@Column(length = 150)
 	@Required
@@ -31,12 +28,9 @@ public class Producto {
 	@DescriptionsList
 	Categoria categoria;
 	
-	
+	@Column
 	@Stereotype("DINERO")
 	private BigDecimal precio;
 	
-	@Column
-	@Stereotype("TEXTO_GRANDE")
-	private String observaciones;
 	
 }

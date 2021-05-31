@@ -1,5 +1,7 @@
 package com.tuempresa.ventas.modelo;
 
+import java.util.*;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 
@@ -12,7 +14,7 @@ import lombok.*;
 public class Empleado {
 	
 	@Id
-	@GeneratedValue(generator="System-uuid")
+	@GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name ="system-uuid" , strategy="uuid" )
 	@Hidden
 	@Column(length = 32)
@@ -21,7 +23,7 @@ public class Empleado {
 	@Column(length = 32)
 	@Stereotype("NOMBRE_PERSONA")
 	@Required
-	private String Nombre;
+	private String nombre;
 	
 	@Column(length = 10)
 	@Required
@@ -30,16 +32,20 @@ public class Empleado {
 	@Column(length = 32)
 	@Required
 	@Stereotype("TEXTO_LARGO")
-	private String Direccion;
+	private String direccion;
 	
 	@Column(length = 32)
 	@Required
 	@Stereotype("TELEFONO")
-	private String Telefono;
+	private String telefono;
 	
 	@Column(length = 32)
 	@Required
-	private String Seguro ;
+	private String seguro;
+	
+	//relacion con venta
+	@OneToMany(mappedBy = "empleado")
+	private List<Venta> ventas;
 	
 	
 
