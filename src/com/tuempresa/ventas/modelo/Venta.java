@@ -1,11 +1,13 @@
 package com.tuempresa.ventas.modelo;
 
+import java.math.*;
 import java.time.*;
 import java.util.*;
 
 import javax.persistence.*;
 
 import org.openxava.annotations.*;
+import org.openxava.calculators.*;
 
 import lombok.*;
 
@@ -24,6 +26,7 @@ public class Venta {
 	
 	@Column
 	@Required
+	@DefaultValueCalculator(CurrentLocalDateCalculator.class)
 	@Stereotype("FECHA")
 	private LocalDate fecha;
 	
@@ -37,6 +40,10 @@ public class Venta {
 	@ReferenceView("Simple")
 	private Empleado empleado;
 	
+	@Column
+	@Required
+	@Stereotype("DINERO")
+	private BigDecimal total;
 	
 	//relacion con detalle venta
 	@ElementCollection
