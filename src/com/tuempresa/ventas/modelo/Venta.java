@@ -1,6 +1,5 @@
 package com.tuempresa.ventas.modelo;
 
-import java.math.*;
 import java.time.*;
 import java.util.*;
 
@@ -38,18 +37,9 @@ public class Venta {
 	@ReferenceView("Simple")
 	private Empleado empleado;
 	
-	@Column
-	@Required
-	@Stereotype("DINERO")
-	private BigDecimal subtotal;
-	
-	@Column
-	@Required
-	@Stereotype("DINERO")
-	private BigDecimal total;
 	
 	//relacion con detalle venta
 	@ElementCollection
-	@ListProperties("producto.id, producto.descripcion, producto.precio, cantidad, subtotal, total ") // en comillas se colocan los diversos atributos de detalle factura
+	@ListProperties("producto.id, producto.descripcion, producto.precio, cantidad, subtotal") // en comillas se colocan los diversos atributos de detalle factura
 	private Collection<DetalleVenta> detalles;
 }

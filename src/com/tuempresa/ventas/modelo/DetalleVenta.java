@@ -1,5 +1,4 @@
 package com.tuempresa.ventas.modelo;
-
 import java.math.*;
 
 import javax.persistence.*;
@@ -18,18 +17,32 @@ public class DetalleVenta {
 	private int cantidad;
 	
 	@Column
-	@Required
 	@Stereotype("DINERO")
 	private BigDecimal subtotal;
 	
-	
-	@Column
-	@Required
+	/*
 	@Stereotype("DINERO")
-	private BigDecimal total;
+	@Depends("producto.id, cantidad")
+	public BigDecimal setSubtotal() { 
+	    if (producto == null || producto.getPrecio() == null) return BigDecimal.ZERO;
+	    return new BigDecimal(cantidad).multiply(producto.getPrecio());
+	}
+	*/
+	
+	
+	@Stereotype("DINERO")
+	@Depends("producto.id, cantidad") 
+	public BigDecimal getSubtotal() { 
+	    if (producto == null || producto.getPrecio() == null) return BigDecimal.ZERO;
+	    return new BigDecimal(cantidad).multiply(producto.getPrecio());
+	}
 	
 	//Realizamos la relación con producto
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Producto producto;
 
+	
+	
+	
+	
 }
