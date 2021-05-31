@@ -9,12 +9,14 @@ import org.openxava.annotations.*;
 import lombok.*;
 
 @Entity @Getter @Setter
-public class cliente {
+public class Cliente {
+	@Id
 	@GeneratedValue(generator="System-uuid")
 	@GenericGenerator(name ="system-uuid" , strategy="uuid" )
 	@Hidden
 	@Column(length = 32)
 	private String id;
+	
 	@Column(length= 30)
 	@Stereotype("NOMBRE_PERSONA")
 	@Required
