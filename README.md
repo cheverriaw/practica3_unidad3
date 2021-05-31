@@ -2,8 +2,8 @@
 
 <<Practica3>>
 Alumnos:
-López Germán, Nelson Alberto
-Cheverría Pacheco, William Giovanni
+1- López Germán, Nelson Alberto
+2- Cheverría Pacheco, William Giovanni
 
 ===========================================================================================
 Nota: 
