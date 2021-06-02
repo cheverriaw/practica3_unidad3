@@ -1,14 +1,2 @@
-/*C3*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C4*/SET SCHEMA PUBLIC
-create table Ventas.Venta (id integer not null, fecha date, numero varchar(255), total numeric(19,2), cliente_id integer not null, empleado_id integer not null, primary key (id))
-create table Ventas.Venta_detalles (Venta_id integer not null, cantidad integer, producto_id integer not null)
-alter table Ventas.Venta add constraint FKbv0rwi1bkq5qsqv2qyy52124i foreign key (cliente_id) references Ventas.Cliente
-alter table Ventas.Venta add constraint FKg8qk4b2lo9ag1fqj7gx839ji6 foreign key (empleado_id) references Ventas.Empleado
-alter table Ventas.Venta_detalles add constraint FK16fqrmenw455g2fdsmr39ryt5 foreign key (producto_id) references Ventas.Producto
-alter table Ventas.Venta_detalles add constraint FK7gtamgo5sm5rhjceirt8bxxho foreign key (Venta_id) references Ventas.Venta
-SET SCHEMA VENTAS
-INSERT INTO VENTA VALUES(27,'2021-05-31','1',1500.00,16,18)
-INSERT INTO VENTA_DETALLES VALUES(27,5,21)
-COMMIT
-ALTER SEQUENCE VENTAS.HIBERNATE_SEQUENCE RESTART WITH 28
+DISCONNECT
